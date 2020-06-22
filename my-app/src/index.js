@@ -1,17 +1,18 @@
 import React from 'react';
-import ReactDOM from 'react-dom';
-import './index.css';
-import App from './App';
-import * as serviceWorker from './serviceWorker';
+import ReactDom from 'react-dom';
+import Person from './components/Person/Person'
 
-ReactDOM.render(
-  <React.StrictMode>
-    <App />
-  </React.StrictMode>,
-  document.getElementById('root')
-);
+const Persons = (props)=>{
+    const list = props.list;
+    return (
+        <div>
+           {list}
+        </div>);
+}  
 
-// If you want your app to work offline and load faster, you can change
-// unregister() to register() below. Note this comes with some pitfalls.
-// Learn more about service workers: https://bit.ly/CRA-PWA
-serviceWorker.unregister();
+const users = [ 
+    <Person name="Jack Dorsey" age="42"/>,
+    <Person name="Mark z" age="35"/>
+    ];
+    
+ReactDom.render(<Persons list={users}/>,document.getElementById('root'));
